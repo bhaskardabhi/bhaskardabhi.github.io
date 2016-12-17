@@ -1,0 +1,22 @@
+body{padding-top: 50px;}
+.top-spacing{margin-top: 20px;}
+.md-top-spacing{margin-top: 40px;}
+.lg-top-spacing{margin-top: 60px;}
+
+.sm-left-spacing{margin-left: 10px;}
+.left-spacing{margin-left: 20px;}
+.bottom-spacing{margin-bottom: 20px;}
+.inline-block{display: inline-block;}
+
+blockquote.quote {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border: medium none;
+    color: black;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
