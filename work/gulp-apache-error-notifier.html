@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blog and portfolio of Bhaskar Dabhi</title>
+    <meta name="description" content="Gulp script which display notification if fatal error is logged in apache error log. As a lazy programmer, i created this script so i dont have manually search fatal errors in apache log." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="gulp,gulp notifier,apache2 log,apache,apache2,gulpfile,npm gulp,apache error,error notifier,js,js developer,error log,Bhaskar Dabhi,gulp example,Web developer, Js developer, Laravel Developer, Web Developer Blog, js developer Blog, Laravel developer blog, web portfolio" />
+        <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="10 days">
+    <!-- Bhaskar Dabhi, Laravel Developer, Js developer  -->
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.25.2/react-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/app.css">
+      </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M5WFJZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M5WFJZ');</script>
+    <!-- End Google Tag Manager -->
+    <div id="navbar-container"></div>
+<script type="text/jsx">
+  (function () {
+    var Navbar = ReactBootstrap.Navbar,
+        Nav = ReactBootstrap.Nav,
+        NavItem = ReactBootstrap.NavItem;
+
+    const navbarInstance = (
+      <Navbar brand="Bhaskar Dabhi" fixedTop="true">
+        <Nav>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/work.html">Work</NavItem>
+        </Nav>
+      </Navbar>
+    );
+
+    React.render(navbarInstance, document.getElementById('navbar-container'));
+  })()
+</script>    	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="well well-lg md-top-spacing">
+					<h1>Apache Error Notifier using Gulp
+						<a href="https://github.com/bhaskardabhi/Gulp-apache-Error-Notifier" target="_blank">
+							<i class="fa fa-github"></i>
+						</a>
+					</h1>
+					<h3>Gulp script which display notification if fatal error is logged in apache error log. As a lazy programmer, i created this script so i dont have manually search fatal errors in apache log.</h3>
+				</div>
+				<h5>How to use?</h5>
+				<p>Install Npm. (If you don't know then please google.)</p>
+				<p>Install Gulp. <code>npm install -g gulp</code></p>
+				<p>Install following depedencies by Gulp:</p>
+				<p><code>npm install --save gulp-notify gulp-intercept</code></p>
+				<p>Run: <code>gulp</code> in the directory of <code>gulpfile.js</code></p>
+
+				<p>It will automatically display notification if fatal error is logged.</p>
+				<p>Note: By default path for apache error log file is <code>/var/log/apache2/error.log</code>. If yours is not same then add goto <code>gulpfile.js</code> and change <code>logPath</code> to path of your log file.</p>
+				<br>
+				<p><small>Note: This script can be improved more. Let me know your feedback at <a href="mailto:hola@bhaskardabhi.com" target="_blank">hola@bhaskardabhi.com</a></small></p>
+			</div>
+		</div>
+	</div>
+    <script src="/js/Lovemeter.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-52854494-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
