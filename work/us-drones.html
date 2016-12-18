@@ -1,0 +1,217 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blog and portfolio of Bhaskar Dabhi</title>
+    <meta name="description" content="Its a script to get love percentage of two partners." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="lovemeter,lovemeterjs,love,js,coffeescript,partner,love percentage,javascript,javascript coffeescript,coffeescript example,Web developer, Js developer, Laravel Developer, Web Developer Blog, js developer Blog, Laravel developer blog, web portfolio" />
+        <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="10 days">
+    <!-- Bhaskar Dabhi, Laravel Developer, Js developer  -->
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.25.2/react-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/app.css">
+      </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M5WFJZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M5WFJZ');</script>
+    <!-- End Google Tag Manager -->
+    <div id="navbar-container"></div>
+<script type="text/jsx">
+  (function () {
+    var Navbar = ReactBootstrap.Navbar,
+        Nav = ReactBootstrap.Nav,
+        NavItem = ReactBootstrap.NavItem;
+
+    const navbarInstance = (
+      <Navbar brand="Bhaskar Dabhi" fixedTop="true">
+        <Nav>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/work.html">Work</NavItem>
+        </Nav>
+      </Navbar>
+    );
+
+    React.render(navbarInstance, document.getElementById('navbar-container'));
+  })()
+</script>
+            <div class="container-fluid">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Map</div>
+                            <div class="panel-body">
+                                <div id="chart_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Total attacks</div>
+                            <div class="panel-body">
+                                <h3 id="total-attacks"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">First Attack</div>
+                            <div class="panel-body">
+                                <h3 id="first-attack"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Last Attach</div>
+                            <div class="panel-body">
+                                <h3 id="last-attack"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Total Death</div>
+                            <div class="panel-body">
+                                <h3 id="total-death"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Civilians Death</div>
+                            <div class="panel-body">
+                                <h3 id="civilians-death"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Injuries</div>
+                            <div class="panel-body">
+                                <h3 id="injuries"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Children Death</div>
+                            <div class="panel-body">
+                                <h3 id="children-death"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            (function () {
+                google.charts.load('upcoming', { 'packages': ['map'] });
+                google.charts.setOnLoadCallback(function () {
+                    drawMap();
+                    console.log("Loading");
+
+                    setInterval(function () {
+                        console.log("Loading");
+                        drawMap();
+                    }, 300000);
+                });
+
+                function drawMap() {
+                    $.ajax({
+                        url: "http://api.dronestre.am/data",
+                        jsonp: "callback",
+                        dataType: "jsonp",
+                        success: function( data ) {
+                            var mapData = [['Lat', 'Long', 'Name']],
+                                totalDeath = 0,
+                                civilians = 0,
+                                injuries = 0,
+                                children = 0,
+                                firstAttack = new Date(data.strike[0]['date']),
+                                lastAttack = new Date(data.strike[data.strike.length - 1]['date']);
+
+                            jQuery.each(data.strike, function (index, currentData) {
+                                totalDeath += getParsed(currentData['deaths']);
+                                civilians += getParsed(currentData['civilians']);
+                                injuries += getParsed(currentData['injuries']);
+                                children += getParsed(currentData['children']);
+
+                                mapData.push([
+                                    parseFloat(currentData.lat),
+                                    parseFloat(currentData.lon),
+                                    currentData.location,
+                                ]);
+                            });
+
+                            jQuery("#total-death").text(totalDeath);
+                            jQuery("#civilians-death").text(civilians);
+                            jQuery("#injuries").text(injuries);
+                            jQuery("#children-death").text(children);
+                            jQuery("#first-attack").text(firstAttack.getDate()+"-"+(firstAttack.getMonth()+1)+"-"+firstAttack.getFullYear());
+                            jQuery("#last-attack").text(lastAttack.getDate()+"-"+(lastAttack.getMonth()+1)+"-"+lastAttack.getFullYear());
+                            jQuery("#total-attacks").text(data.strike.length);
+
+
+                            var map = new google.visualization.Map(document.getElementById('chart_div'));
+
+                            map.draw(google.visualization.arrayToDataTable(mapData), {
+                                showTooltip: true,
+                                showInfoWindow: true
+                            });
+                        }
+                    });
+                };
+
+                function getParsed(text) {
+                    if(!text){
+                        return 0;
+                    }
+
+                    var exploded = text.split("-");
+
+                    if(exploded.length == 0){
+                        return 0;
+                    } else if(exploded.length == 1){
+                        var parsed = parseInt(exploded[0]) ? parseInt(exploded[0]) : 0;
+
+                        return !isNaN(parsed) ? parsed : 0;
+                    } else if(exploded.length == 2){
+                        var parsed = parseInt(exploded[1]) ? parseInt(exploded[1]) : 0;
+
+                        return !isNaN(parsed) ? parsed : 0;
+                    }
+                }
+            }) ();
+        </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-52854494-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
