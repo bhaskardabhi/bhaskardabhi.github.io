@@ -72,17 +72,17 @@ var insertionSort = function(arr){
 	<h5>Merge Sort</h5>
         <pre>
 var mergeSort = function(arr){
-	if(arr.length < 2){
-  	return arr;
+  if(arr.length < 2){
+     return arr;
   }
   
   var divider = Math.ceil(arr.length/2)-1,
-  		left = [],
+      left = [],
       right = [];
   
   for(var i = 0; i < arr.length; i++){
-		if(i <= divider){
-    	left.push(arr[i]);
+    if(i <= divider){
+      left.push(arr[i]);
     } else {
       right.push(arr[i]);
     }
@@ -92,9 +92,9 @@ var mergeSort = function(arr){
 }
 
 var merge = function(left,right,arr){
-	var i = 0,j = 0,k = 0;
+   var i = 0,j = 0,k = 0;
   
-	while(i < left.length && j < right.length){
+    while(i < left.length && j < right.length){
   	if(left[i] <= right[j]){
     	arr[k] = left[i];
       i++;
@@ -116,7 +116,7 @@ var merge = function(left,right,arr){
     k++;
   }
   
-	return arr;
+  return arr;
 }
         </pre>
 			</div>
