@@ -119,6 +119,32 @@ var merge = function(left,right,arr){
   return arr;
 }
         </pre>
+					<h5>Bubble Sort</h5>
+        <pre>
+var bubbleSort = function(arr){
+  var j = arr.length;
+  for(var i = 0; i < arr.length;i++){ ;
+    var alreadySorted = true;
+    for(var k = 0;k < j-1; k++){
+    	console.log(arr[k] +">"+ arr[k+1],arr[k] > arr[k+1]);
+    	if(arr[k] > arr[k+1]){
+	   var temp = arr[k+1];
+	   arr[k+1] = arr[k];
+	   arr[k] = temp;
+	   var alreadySorted = false;
+         }
+    }
+    
+    if(alreadySorted){
+    	return arr;
+    }
+    
+    j--;
+  }
+	
+  return arr;
+}
+        </pre>
 			</div>
 		</div>
 	</div>
