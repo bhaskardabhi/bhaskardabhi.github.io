@@ -204,6 +204,10 @@ Vue.component('board', {
             
             this.addMessage(player.name+" reached "+player.position);
             
+            if(player.position == 100){
+                this.addMessage(player.name+" Won");
+            }
+            
             var ladder = this.checkIfLadderExistOnCell(player.position);
             
             if(ladder){
