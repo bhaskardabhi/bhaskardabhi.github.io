@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blog and portfolio of Bhaskar Dabhi</title>
+    <meta name="description" content="Siddhu.js is a script which display Siddhu Paaji&#039;s &quot;Awesome&quot; Quotes at different time interval." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Siddhu,siddhujs,Navjodh Siddhu,Siddhu funny commentory,javascript,siddhu funny,siddhu quotes,thoko taali,Navjot Singh Sidhu,Web developer, Js developer, Laravel Developer, Web Developer Blog, js developer Blog, Laravel developer blog, web portfolio" />
+        <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="10 days">
+    <!-- Bhaskar Dabhi, Laravel Developer, Js developer  -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.25.2/react-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/app.css">
+        <style media="screen">
+            .board{
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 80%;
+                margin-top: 20px;
+                overflow: overlay;
+            }
+            .board-cell{
+                position: relative;
+                width: 10%;
+                display: inline-block;
+                padding: 15px 10px;
+                text-align: center;
+                border: 1px solid black;
+                float: left;
+            }
+            .board-cell.black{
+                background-color: #5d5656;
+                color: white;
+                border-color: white;
+            }
+            .board-player{
+                position: absolute;
+                padding: 5px 5px;
+                width: 5%;
+                left: 0;
+                width: 100%;
+                top: 0;
+                text-align: left;
+            }
+            .dice{
+                cursor: pointer;
+                width: 100px;
+                padding: 5px;
+                border: 1px solid black;
+                display: inline-block;
+            }
+            .dice.rolling{
+                cursor: default;
+            }
+            .dice span{
+                text-align: center;
+                width: 33.33%;
+                display: inline-block;
+                float: left;
+                min-height: 20px;
+            }
+            .board-cell.active{
+                background: #ccc;
+            }
+        </style>
+      </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M5WFJZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M5WFJZ');</script>
+        <!-- End Google Tag Manager -->
+        <div id="navbar-container"></div>
+        <div id="gameboard">
+            <board :players="players"></board>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/jsx">
+          (function () {
+            var Navbar = ReactBootstrap.Navbar,
+                Nav = ReactBootstrap.Nav,
+                NavItem = ReactBootstrap.NavItem;
+
+            const navbarInstance = (
+              <Navbar brand="Bhaskar Dabhi" fixedTop="true">
+                <Nav>
+                  <NavItem href="/">Home</NavItem>
+                  <NavItem href="/work.html">Work</NavItem>
+                </Nav>
+              </Navbar>
+            );
+
+            React.render(navbarInstance, document.getElementById('navbar-container'));
+          })()
+        </script>    	
+        <script src="/js/snake-ladder.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-52854494-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+  </body>
+</html>
