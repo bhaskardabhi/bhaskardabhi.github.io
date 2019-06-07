@@ -142,8 +142,6 @@
                 function drawMap() {
                     $.ajax({
                         url: "https://api.dronestre.am/data",
-                        jsonp: "callback",
-                        dataType: "jsonp",
                         success: function( data ) {
                             var mapData = [['Lat', 'Long', 'Name']],
                                 totalDeath = 0,
