@@ -96,7 +96,7 @@ var insertionSort = function(arr){
         </pre>
 	<h5>Binary Insertion Sort</h5>
         <pre>
-var binarySortIndex = function(array, item, low, high){
+var binaryInsertionSortIndex = function(array, item, low, high){
    var mid = parseInt((low+high)/2);
   
   if(low >= high){
@@ -104,21 +104,21 @@ var binarySortIndex = function(array, item, low, high){
   }
  
   if(array[mid] > item){
-  	return binarySortIndex(array, item, low, mid-1);
+  	return binaryInsertionSortIndex(array, item, low, mid-1);
   } else if(array[mid] < item) {
-  	return binarySortIndex(array, item, mid+1, high);
+  	return binaryInsertionSortIndex(array, item, mid+1, high);
   } else {
   	return mid; 
   }
 }
 
 
-var binarySort = function(array){
+var binaryInsertionSort = function(array){
 	
   for(var i = 1; i < array.length; i++){
-  	var item = array[i];
+    var item = array[i];
     var j = i - 1;
-  	var binaryIndex = binarySortIndex(array, item, 0, j);
+    var binaryIndex = binaryInsertionSortIndex(array, item, 0, j);
     
     while(j >= binaryIndex){
     	array[j+1] = array[j];
