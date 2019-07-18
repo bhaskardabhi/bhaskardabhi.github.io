@@ -222,7 +222,6 @@ console.log(arr.sort());
         </pre>
 	<pre>
 Output:
-Console was cleared
 -----Traversing-----
 4
 1
@@ -241,6 +240,68 @@ Console was cleared
 7
 0
 (5) [1, 10, 4, 5, 6]
+	</pre>
+	<h5>String (Typescript)</h5>
+        <pre>
+class StringManager{
+    constructor(public words:string){};
+
+    length = () : number => {
+        return this.words.length;
+    }
+
+    indexOf = (char:string) : number => {
+        return this.words.indexOf(char);
+    }
+
+    charAt = (index:number) : string => {
+        return this.words.charAt(index);
+    }
+
+    compareTo = (otherString:string) : boolean => {
+        return this.words === otherString;
+    }
+
+    contain = (substr:string) : boolean => {
+        return this.words.includes(substr);
+    }
+
+    replace =  (substr:string,replaceWith:string) : string => {
+        return this.words.replace(substr,replaceWith);
+    }
+
+    toLower = () : string => {
+        return this.words.toLowerCase();
+    }
+
+    toUpper = () : string => {
+        return this.words.toUpperCase();
+    }
+}
+
+var str = new StringManager("example goes here");
+
+console.log(str.length());
+console.log(str.indexOf('goes'));
+console.log(str.charAt(5));
+console.log(str.compareTo('example here'));
+console.log(str.compareTo('example goes here'));
+console.log(str.contain('goes'));
+console.log(str.replace('here','there'));
+console.log(str.toLower());
+console.log(str.toUpper());        
+	</pre>
+	<pre>
+Output:
+17
+8
+l
+false
+true
+true
+example goes there
+example goes here
+EXAMPLE GOES HERE
 	</pre>
 			</div>
 		</div>
