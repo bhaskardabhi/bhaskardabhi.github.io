@@ -181,6 +181,67 @@ var merge = function(left,right,arr){
   return arr;
 }
         </pre>
+	<h5>Array (Typescript)</h5>
+        <pre>
+class ArrayManager{
+    constructor(public items:number[]){};
+
+    traverse = () => {
+        console.log("-----Traversing-----");
+        this.items.forEach(item => console.log(item));
+        console.log("--------------------");
+    }
+
+    insert = (item:number, index:number) => {
+        this.items.splice(index,0,item);
+
+        this.traverse();
+    }
+
+    delete = (index:number) : number | null => {
+        var deletedElements = this.items.splice(index,1);
+        return deletedElements.length ? deletedElements[0] : null;
+    }
+
+    search = (item:number) : number => {
+        return this.items.indexOf(item);
+    }
+
+    sort = () : number[] => {
+        return this.items.sort();
+    }
+}
+
+var arr = new ArrayManager([4,1,7,5,6]);
+
+arr.traverse();
+arr.insert(10,3);
+console.log(arr.delete(2));
+console.log(arr.search(4));
+console.log(arr.sort());
+        </pre>
+	<pre>
+Output:
+Console was cleared
+-----Traversing-----
+4
+1
+7
+5
+6
+--------------------
+-----Traversing-----
+4
+1
+7
+10
+5
+6
+--------------------
+7
+0
+(5) [1, 10, 4, 5, 6]
+	</pre>
 			</div>
 		</div>
 	</div>
